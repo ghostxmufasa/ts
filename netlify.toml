@@ -1,0 +1,24 @@
+# TS Sport — Netlify settings
+# Set SANITY_PROJECT_ID (and optionally SANITY_DATASET) in the Netlify UI:
+# Site configuration → Environment variables. Do not put them here.
+
+[build]
+  command = "node scripts/build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Always fetch the latest product list after a rebuild.
+[[headers]]
+  for = "/catalogue.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

@@ -1,0 +1,12 @@
+{
+  "name": "ts-sport-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TS Sport storefront — soccer jerseys and football boots, with Sanity products and Netlify hosting.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:sample": "node scripts/build.mjs --sample"
+  }
+}
